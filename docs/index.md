@@ -24,4 +24,4 @@ Travelers seeking global connections
 
 ## Contact
 
-Have questions or feedback? Open an issue on our GitHub repository or contact the team at support@example.com.
+Have questions or feedback? Open an issue on our GitHub repository or contact the team at globetalk92@gmail.com
