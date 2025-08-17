@@ -6,7 +6,8 @@ theme:
     text: Merriweather Sans
     code: Red Hat Mono
 
-  logo: assets/temp_logo.png
+  logo: assets/logo.png
+  favicon: assets/logo.png
   palette:
     # Dark Mode
     - scheme: slate
@@ -21,9 +22,26 @@ theme:
       toggle:
         icon: material/weather-night
         name: Light mode
-      primary: blue
+      primary: teal
       accent: deep orange
 
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Features: features.md
+  - API:
+      - Overview: api/index.md
+      - Matchmaking API: api/matchmaking.md
+      - Message API: api/message.md
+      - Profile API: api/profile.md
+      - Moderation API: api/moderation.md
+  - UI Modules: ui.md
+  - Database: database.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - Contributing: contributing.md
 
 markdown_extensions:
   - attr_list
