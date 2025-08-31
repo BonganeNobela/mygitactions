@@ -1,13 +1,13 @@
 site_name: GlobeTalk Documentation
 site_url: https://sitename.example
+
 theme:
   name: material
   font:
     text: Merriweather Sans
     code: Red Hat Mono
-
-  logo: assets/logo.png
-  favicon: assets/logo.png
+  logo: assets/logo/logo.png
+  favicon: assets/logo/logo.png
   palette:
     # Dark Mode
     - scheme: slate
@@ -15,7 +15,7 @@ theme:
         icon: material/weather-sunny
         name: Dark mode
       primary: black
-      accent: deep purple # color when hovering links
+      accent: "deep purple"  # color when hovering links
 
     # Light Mode
     - scheme: default
@@ -39,6 +39,19 @@ nav:
       - Moderation API: api/moderation.md
   - UI Modules: ui.md
   - Database: database.md
+  - Diagrams:
+      - Use Case: diagrams/usecase.md
+      - Architecture: diagrams/architecture.md
+      - Sequence: diagrams/sequence.md
+      - Component: diagrams/component.md
+      - Deployment: diagrams/deployment.md
+      - State Diagram: diagrams/state.md
+      - Class Diagram: diagrams/class.md
+      - Activity Diagram:
+          - User Registration: diagrams/activity/user_registration.md
+          - Message Processing: diagrams/activity/message_processing.md
+          - Admin Moderation: diagrams/activity/admin_moderation.md
+      - Data Flow Diagram: diagrams/dataflow.md
   - Installation: installation.md
   - Usage: usage.md
   - Contributing: contributing.md
@@ -48,12 +61,17 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
-        anchor_linenums: true
-        line_spans: __span
-        pygments_lang_class: true
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
 
+extra_css:
+  - assets/styling/extra.css
