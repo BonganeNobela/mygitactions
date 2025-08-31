@@ -7,6 +7,5 @@
 ## Chat State Diagram
 ![Chat State Diagram](../assets/chat_state.svg)
 
-## Friendship System Sequence Diagram
 
 

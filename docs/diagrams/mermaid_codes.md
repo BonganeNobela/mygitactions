@@ -1010,23 +1010,24 @@ stateDiagram-v2
 
 
 # Activity Diagram (User Registration Flow)
+
 ```mermaid
 flowchart TD
     Start([User starts registration])
     
-    ChooseAuth{Choose authentication method}
-    EmailAuth[Enter email and password]
-    OAuthAuth[Select OAuth provider]
+    SelectOAuthProvider[Select OAuth provider (Google, Facebook, etc.)]
     
-    ValidateEmail{Email valid?}
-    ValidateOAuth{OAuth successful?}
+    RedirectToProvider[Redirect to OAuth provider]
+    UserAuthorizes{User authorizes app?}
     
-    CreateAccount[Create Firebase account]
+    ReceiveAuthCode[Receive authorization code]
+    ExchangeToken[Exchange code for access token]
+    
+    ValidateToken{Token valid?}
+    GetUserInfo[Get user info from provider]
+    
+    CreateFirebaseAccount[Create Firebase account with OAuth]
     AccountExists{Account already exists?}
-    
-    SendVerification[Send verification email]
-    WaitVerification[Wait for email verification]
-    CheckVerification{Email verified?}
     
     StartOnboarding[Begin onboarding process]
     
@@ -1061,40 +1062,34 @@ flowchart TD
     End([Registration complete])
     
     %% Error handling
-    ShowEmailError[Show email format error]
-    ShowOAuthError[Show OAuth error]
-    ShowLoginOption[Show login option]
-    ShowVerificationError[Resend verification email]
+    ShowOAuthError[Show OAuth authorization error]
+    ShowTokenError[Show token validation error]
+    ShowLoginOption[Show login option for existing users]
     ShowValidationError[Show field validation error]
     ShowBioError[Show inappropriate content warning]
     ShowSaveError[Show save error, retry]
     
     %% Flow connections
-    Start --> ChooseAuth
+    Start --> SelectOAuthProvider
     
-    ChooseAuth -->|Email| EmailAuth
-    ChooseAuth -->|OAuth| OAuthAuth
+    SelectOAuthProvider --> RedirectToProvider
+    RedirectToProvider --> UserAuthorizes
     
-    EmailAuth --> ValidateEmail
-    ValidateEmail -->|No| ShowEmailError
-    ShowEmailError --> EmailAuth
-    ValidateEmail -->|Yes| CreateAccount
+    UserAuthorizes -->|No| ShowOAuthError
+    ShowOAuthError --> SelectOAuthProvider
+    UserAuthorizes -->|Yes| ReceiveAuthCode
     
-    OAuthAuth --> ValidateOAuth
-    ValidateOAuth -->|No| ShowOAuthError
-    ShowOAuthError --> ChooseAuth
-    ValidateOAuth -->|Yes| CreateAccount
+    ReceiveAuthCode --> ExchangeToken
+    ExchangeToken --> ValidateToken
+    ValidateToken -->|No| ShowTokenError
+    ShowTokenError --> SelectOAuthProvider
+    ValidateToken -->|Yes| GetUserInfo
     
-    CreateAccount --> AccountExists
+    GetUserInfo --> CreateFirebaseAccount
+    CreateFirebaseAccount --> AccountExists
     AccountExists -->|Yes| ShowLoginOption
-    ShowLoginOption --> ChooseAuth
-    AccountExists -->|No| SendVerification
-    
-    SendVerification --> WaitVerification
-    WaitVerification --> CheckVerification
-    CheckVerification -->|No| ShowVerificationError
-    ShowVerificationError --> WaitVerification
-    CheckVerification -->|Yes| StartOnboarding
+    ShowLoginOption --> SelectOAuthProvider
+    AccountExists -->|No| StartOnboarding
     
     StartOnboarding --> EnterBasicInfo
     EnterBasicInfo --> ValidateBasic
@@ -1136,9 +1131,9 @@ flowchart TD
     classDef error fill:#ffcccb
     
     class Start,End startEnd
-    class EmailAuth,OAuthAuth,CreateAccount,SendVerification,StartOnboarding,EnterBasicInfo,EnterLocation,EnterLanguages,EnterInterests,WriteBio,SetPrivacy,ReviewProfile,SaveProfile,GenerateMatches,ShowWelcome,RedirectHome process
-    class ChooseAuth,ValidateEmail,ValidateOAuth,AccountExists,CheckVerification,ValidateBasic,ValidateLocation,ValidateLanguages,ValidateBio,ConfirmProfile,ProfileSaved decision
-    class ShowEmailError,ShowOAuthError,ShowLoginOption,ShowVerificationError,ShowValidationError,ShowBioError,ShowSaveError error
+    class SelectOAuthProvider,RedirectToProvider,ReceiveAuthCode,ExchangeToken,GetUserInfo,CreateFirebaseAccount,StartOnboarding,EnterBasicInfo,EnterLocation,EnterLanguages,EnterInterests,WriteBio,SetPrivacy,ReviewProfile,SaveProfile,GenerateMatches,ShowWelcome,RedirectHome process
+    class UserAuthorizes,ValidateToken,AccountExists,ValidateBasic,ValidateLocation,ValidateLanguages,ValidateBio,ConfirmProfile,ProfileSaved decision
+    class ShowOAuthError,ShowTokenError,ShowLoginOption,ShowValidationError,ShowBioError,ShowSaveError error
 ```
 
 
