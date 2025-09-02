@@ -1,0 +1,82 @@
+/* Enhanced Mermaid diagram styling for larger, more readable diagrams */
+.mermaid {
+  /* Size and spacing */
+  min-width: 100% !important;
+  max-width: 100% !important;
+  font-size: 2.2em !important; /* Increased from 1.6em */
+  min-height: 600px !important; /* Set minimum height */
+  margin: 2rem 0 !important; /* Add vertical spacing */
+  
+  /* Container styling */
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-radius: 8px !important;
+  padding: 1.5rem !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  
+  /* Text styling */
+  font-family: 'Red Hat Mono', monospace !important;
+  line-height: 1.4 !important;
+  
+  /* Ensure diagrams are centered */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Specific styling for sequence diagrams */
+.mermaid .sequenceDiagram {
+  transform: scale(2.8) !important; /* Scale up sequence diagrams */
+  transform-origin: center !important;
+}
+
+/* Style for actor boxes in sequence diagrams */
+.mermaid .actor {
+  font-weight: 600 !important;
+  font-size: 1.1em !important;
+}
+
+/* Style for message text */
+.mermaid .messageText {
+  font-size: 0.9em !important;
+  font-weight: 500 !important;
+}
+
+/* Style for notes */
+.mermaid .note {
+  font-size: 0.85em !important;
+  font-style: italic !important;
+}
+
+/* Responsive scaling for smaller screens */
+@media (max-width: 768px) {
+  .mermaid {
+    font-size: 1.8em !important;
+    min-height: 500px !important;
+    padding: 1rem !important;
+  }
+  
+  .mermaid .sequenceDiagram {
+    transform: scale(1.0) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mermaid {
+    font-size: 1.5em !important;
+    min-height: 400px !important;
+    padding: 0.75rem !important;
+  }
+  
+  .mermaid .sequenceDiagram {
+    transform: scale(0.9) !important;
+  }
+}
+
+/* Override any theme-specific mermaid styling */
+[data-md-color-scheme="slate"] .mermaid {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-md-color-scheme="default"] .mermaid {
+  background: rgba(0, 0, 0, 0.02) !important;
+}
