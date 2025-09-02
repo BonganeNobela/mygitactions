@@ -41,6 +41,7 @@ nav:
   - Database: database.md
   - Installation: installation.md
   - Usage: usage.md
+  - Reasoning behind GlobeTalk Design: reasoning.md
   - Contributing: contributing.md
 
 markdown_extensions:
