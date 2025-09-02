@@ -1,11 +1,11 @@
 site_name: GlobeTalk Documentation
 site_url: https://sitename.example
+
 theme:
   name: material
   font:
     text: Merriweather Sans
     code: Red Hat Mono
-
   logo: assets/logo/logo.png
   favicon: assets/logo/logo.png
   palette:
@@ -13,15 +13,15 @@ theme:
     - scheme: slate
       toggle:
         icon: material/weather-sunny
-        name: Dark mode
+        name: Switch to light mode
       primary: black
-      accent: deep purple # color when hovering links
+      accent: deep purple
 
     # Light Mode
     - scheme: default
       toggle:
         icon: material/weather-night
-        name: Light mode
+        name: Switch to dark mode
       primary: teal
       accent: deep orange
 
@@ -39,7 +39,6 @@ nav:
       - Moderation API: api/moderation.md
   - UI Modules: ui.md
   - Database: database.md
-  - 
   - Installation: installation.md
   - Usage: usage.md
   - Contributing: contributing.md
@@ -49,23 +48,17 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-
   - pymdownx.highlight:
-        anchor_linenums: true
-        line_spans: __span
-        pygments_lang_class: true
-
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
-
 
 extra_css:
   - assets/styling/extra.css
-
