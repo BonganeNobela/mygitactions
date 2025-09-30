@@ -38,11 +38,15 @@ nav:
       - Profile API: api/profile.md
       - Moderation API: api/moderation.md
   - UI Modules: ui.md
-  - Database: database.md
+  - Database: databaseSchema.md
+  - API Documentation: api_documentation.md
   - Installation: installation.md
   - Usage: usage.md
   - Reasoning behind GlobeTalk Design: reasoning.md
   - Contributing: contributing.md
+  - Communication Tools for Team and Client: communication_tools.md
+  - Project Management: project_management.md
+  - Tech Stack: tech_stack.md
 
 markdown_extensions:
   - attr_list
