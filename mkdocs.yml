@@ -47,6 +47,8 @@ nav:
   - Communication Tools for Team and Client: communication_tools.md
   - Project Management: project_management.md
   - Tech Stack: tech_stack.md
+  - GlobeTalk Privacy Policy: GlobeTalk_Privacy_Policy.md
+  - GlobeTalk Terms of Service: Terms_of_Service.md
 
 markdown_extensions:
   - attr_list
