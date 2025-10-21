@@ -113,7 +113,7 @@ Your use of GlobeTalk is also governed by our **Privacy Policy**, which explains
 - How you can control or delete your data  
 
 You can read the full Privacy Policy here:  
-👉 [View GlobeTalk Privacy Policy](privacy-policy.md)
+👉 [View GlobeTalk Privacy Policy](GlobeTalk_Privacy_Policy.md)
 
 ---
 
