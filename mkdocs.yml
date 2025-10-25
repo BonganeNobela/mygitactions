@@ -44,11 +44,19 @@ nav:
   - Usage: usage.md
   - Reasoning behind GlobeTalk Design: reasoning.md
   - Contributing: contributing.md
+  - Scrum Metholody: scrum_methology.md
   - Communication Tools for Team and Client: communication_tools.md
   - Project Management: project_management.md
   - Tech Stack: tech_stack.md
+  - Testing: Testing.md
+  - User Stories: user_stories.md
+  - Meetings:
+      - Sprint 1: meetings/sprint1.md
+      - Sprint 2: meetings/sprint2.md
+      - Sprint 3: meetings/sprint3.md
   - GlobeTalk Privacy Policy: GlobeTalk_Privacy_Policy.md
   - GlobeTalk Terms of Service: Terms_Of_Service.md
+  
 
 markdown_extensions:
   - attr_list
