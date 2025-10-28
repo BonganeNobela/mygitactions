@@ -39,6 +39,7 @@ nav:
       - Moderation API: api/moderation.md
   - UI Modules: ui.md
   - Database: databaseSchema.md
+  - Diagrams: diagrams.md
   - API Documentation: api_documentation.md
   - Installation: installation.md
   - Usage: usage.md
@@ -54,8 +55,10 @@ nav:
       - Sprint 1: meetings/sprint1.md
       - Sprint 2: meetings/sprint2.md
       - Sprint 3: meetings/sprint3.md
+      - Sprint 4: meetings/sprint4.md
   - GlobeTalk Privacy Policy: GlobeTalk_Privacy_Policy.md
   - GlobeTalk Terms of Service: Terms_Of_Service.md
+  
   
 
 markdown_extensions:
