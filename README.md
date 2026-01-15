@@ -1,2 +1,2 @@
 # mygitactions
-For learning git actions
+Documentation repo for the globetalk project
